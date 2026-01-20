@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomodoro da Emanuella</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <span class="brand-name">Pomodoro</span>
+      </div>
+      <div class="user-greeting">
+        <span>Olá,</span>
+        <strong>Emanuella</strong>
+      </div>
+      <button id="theme-toggle" class="icon-button" aria-label="Alternar tema">
+        🌙
+      </button>
+    </header>
+
+    <main class="app-main">
+      <section class="panel timer-panel">
+        <h1 class="panel-title">Seu foco, do seu jeito</h1>
+        <p class="panel-subtitle">
+          Use o método Pomodoro para alternar entre foco e pausas inteligentes.
+        </p>
+
+        <div class="mode-tabs" role="tablist">
+          <button class="mode-tab active" data-mode="pomodoro">Foco</button>
+          <button class="mode-tab" data-mode="short">Pausa curta</button>
+          <button class="mode-tab" data-mode="long">Pausa longa</button>
+        </div>
+
+        <div class="timer-display">
+          <span id="minutes">25</span><span class="time-separator">:</span><span id="seconds">00</span>
+        </div>
+
+        <div class="timer-controls">
+          <button id="start-pause-btn" class="primary-btn">Começar</button>
+          <button id="reset-btn" class="ghost-btn">Reiniciar</button>
+        </div>
+
+        <div class="session-info">
+          <span>Ciclo atual: <strong id="cycle-count">1</strong></span>
+          <span>Pomodoros concluídos: <strong id="completed-count">0</strong></span>
+        </div>
+      </section>
+
+      <section class="panel settings-panel">
+        <h2 class="panel-title">Preferências da Emanuella</h2>
+
+        <div class="settings-group">
+          <h3>Tempos (minutos)</h3>
+          <div class="field-grid">
+            <label class="field">
+              <span>Foco</span>
+              <input id="focus-duration" type="number" min="5" max="120" value="25" />
+            </label>
+            <label class="field">
+              <span>Pausa curta</span>
+              <input id="short-break-duration" type="number" min="1" max="30" value="5" />
+            </label>
+            <label class="field">
+              <span>Pausa longa</span>
+              <input id="long-break-duration" type="number" min="5" max="60" value="15" />
+            </label>
+            <label class="field">
+              <span>Ciclos até pausa longa</span>
+              <input id="cycles-to-long-break" type="number" min="1" max="12" value="4" />
+            </label>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h3>Comportamento</h3>
+          <label class="toggle">
+            <input id="auto-start-next" type="checkbox" checked />
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">Começar próxima sessão automaticamente</span>
+          </label>
+          <label class="toggle">
+            <input id="sound-enabled" type="checkbox" checked />
+            <span class="toggle-slider"></span>
+            <span class="toggle-label">Tocar som ao finalizar</span>
+          </label>
+        </div>
+
+        <div class="settings-group">
+          <h3>Meta do dia</h3>
+          <label class="field">
+            <span>Pomodoros que você quer concluir hoje</span>
+            <input id="daily-goal" type="number" min="1" max="48" value="8" />
+          </label>
+          <div class="progress">
+            <div class="progress-header">
+              <span>Progresso de hoje</span>
+              <span id="progress-label">0 / 8</span>
+            </div>
+            <div class="progress-bar">
+              <div id="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>Feito com muito amor ecarinho para Emanuella ❤️</span>
+    </footer>
+  </div>
+
+  <audio id="end-sound">
+    <source src="https://actions.google.com/sounds/v1/alarms/digital_watch_alarm_long.ogg" type="audio/ogg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
